@@ -52,11 +52,13 @@ const firebaseConfig = {
   databaseURL:
     process.env.FIREBASE_DATABASE_URL,
 };
-console.log( ANSI.BLUE + '\nFIREBASE_DATABASE_URL : '+ process.env.FIREBASE_DATABASE_URL + ANSI.RESET)
+console.log( ANSI.BLUE + '\nFIREBASE_DATABASE_URL : ' + process.env.FIREBASE_DATABASE_URL + ANSI.RESET)
 //
 // 2. Initialize Firebase
 const apptiti = firebase.initializeApp(firebaseConfig);
+console.log( ANSI.GREEN + '... after firebase.initializeApp(firebaseConfig);'+ ANSI.RESET)
 const databasetiti = firebase.database();
+console.log( ANSI.GREEN + '... after firebase.database();'+ ANSI.RESET)
 //
 // 3.1 writeData, the write function !
 function writeData(path, key, value) {
@@ -68,6 +70,7 @@ function writeData(path, key, value) {
 //
 // 3.3 let's send some data
 writeData('logopenai-scenario', UUID(), { log: 'start OK' })
+console.log( ANSI.GREEN + `... after writeData('logopenai-scenario', UUID(), { log: 'start OK' })`+ ANSI.RESET)
 
 
 //
