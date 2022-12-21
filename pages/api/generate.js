@@ -57,19 +57,19 @@ console.log( ANSI.BLUE + '\nFIREBASE_DATABASE_URL : ' + process.env.FIREBASE_DAT
 // 2. Initialize Firebase
 const apptiti = firebase.initializeApp(firebaseConfig);
 console.log( ANSI.GREEN + '... after firebase.initializeApp(firebaseConfig);'+ ANSI.RESET)
-const databasetiti = firebase.database();
+//jb const databasetiti = firebase.database();
 console.log( ANSI.GREEN + '... after firebase.database();'+ ANSI.RESET)
 //
 // 3.1 writeData, the write function !
-function writeData(path, key, value) {
-  firebase
-    .database()
-    .ref(path + '/' + key)
-    .set(value);
-}
+//jb function writeData(path, key, value) {
+//jb   firebase
+//jb     .database()
+//jb     .ref(path + '/' + key)
+//jb     .set(value);
+//jb }
 //
 // 3.3 let's send some data
-writeData('logopenai-scenario', UUID(), { log: 'start OK' })
+//jb writeData('logopenai-scenario', UUID(), { log: 'start OK' })
 console.log( ANSI.GREEN + `... after writeData('logopenai-scenario', UUID(), { log: 'start OK' })`+ ANSI.RESET)
 
 
@@ -111,11 +111,11 @@ const generateAction = async (req, res) => {
 
   const basePromptOutput = baseCompletion.data.choices.pop();
 
-  writeData('openai-scenario-serverside', UUID(), {
-    brief: process.env.OPENAI_REQUEST_DESCRIPTION_FR,
-    prompt: req.body.userInput,
-    answer: `${req.body.userInput}${basePromptOutput.text}`
-  })
+  //jb writeData('openai-scenario-serverside', UUID(), {
+  //jb  brief: process.env.OPENAI_REQUEST_DESCRIPTION_FR,
+  //jb   prompt: req.body.userInput,
+  //jb   answer: `${req.body.userInput}${basePromptOutput.text}`
+  //jb })
 
   console.log(ANSI.GREEN + '...' + ANSI.BLUE + basePromptOutput.text + ANSI.RESET)
   
