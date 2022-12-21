@@ -9,11 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "firebase": "^8.10.1",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "dotenv": "^16.0.3",
     "eslint": "8.27.0",
     "eslint-config-next": "13.0.3",
+    "firebase": "^8.10.1",
     "framer-motion": "^6.5.1",
     "next": "^13.0.5",
     "openai": "^3.1.0",
