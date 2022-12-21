@@ -47,6 +47,7 @@ const firebaseConfig = {
   databaseURL:
     process.env.FIREBASE_DATABASE_URL,
 };
+console.log('FIREBASE_DATABASE_URL :', process.env.FIREBASE_DATABASE_URL)
 //
 // 2. Initialize Firebase
 const apptiti = firebase.initializeApp(firebaseConfig);
