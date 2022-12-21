@@ -107,7 +107,7 @@ const generateAction = async (req, res) => {
     answer: `${req.body.userInput}${basePromptOutput.text}`
   })
 
-  console.log('\n=> firstPromptOutput', basePromptOutput.text)
+  console.log('\n=> xfirstPromptOutput', basePromptOutput.text)
   
   res.status(200).json({ output: basePromptOutput });
 };
