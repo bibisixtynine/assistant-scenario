@@ -4,7 +4,7 @@ export default function Document() {
   return (
     <Html>
       <Head>
-        <meta property="og:title" content="Générateur IA de Lettre de Motivation" key="title" />
+        <meta property="og:title" content="Générateur IA de Scénario" key="title" />
         <meta property="og:description" content="construit avec passion" key="description" />
         <meta
           property="og:image"
@@ -17,10 +17,7 @@ export default function Document() {
           href="https://cdn.glitch.com/fd9e84f4-4370-493a-847e-22cebb631384%2Fbabyduck.webp?v=1628793057158"
           type="image/x-icon"
         />
-        <meta
-          name="viewport"
-          content="viewport-fit=cover,user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1"
-        />
+
         <meta name="apple-mobile-web-app-capable" content="yes" />
         {/*<meta
           name="apple-mobile-web-app-status-bar-style"
