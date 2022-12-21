@@ -87,11 +87,10 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration);
 
-const basePromptPrefix = "";
 const generateAction = async (req, res) => {
-  // Run first prompt
+
   const firstPrompt = `${process.env.OPENAI_REQUEST_DESCRIPTION_FR}${req.body.userInput}`;
-  console.log('firstPrompt', firstPrompt)
+  console.log('=> firstPrompt:\n', firstPrompt)
 
   const baseCompletion = await openai.createCompletion({
     model: 'text-davinci-003',
@@ -101,8 +100,14 @@ const generateAction = async (req, res) => {
   });
 
   const basePromptOutput = baseCompletion.data.choices.pop();
-  writeData('openai-scenario-serverside', UUID(), { prompt: firstPrompt, answer: basePromptOutput })
-  console.log('firstPromptOutput', basePromptOutput.text)
+
+  writeData('openai-scenario-serverside', UUID(), {
+    brief: process.env.OPENAI_REQUEST_DESCRIPTION_FR,
+    prompt: req.body.userInput,
+    answer: `${req.body.userInput}${basePromptOutput.text}`
+  })
+
+  console.log('\n=> firstPromptOutput', basePromptOutput.text)
   
   res.status(200).json({ output: basePromptOutput });
 };
