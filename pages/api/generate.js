@@ -4,7 +4,7 @@ import { Configuration, OpenAIApi } from 'openai';
 import firebase from 'firebase/app';
 import 'firebase/database';
 
-import {ANSI} from '../../utils/ansi_colors.js';
+import { ANSI } from '../../utils/ansi_colors.js';
 
 console.log(ANSI.GREEN + "\n*--- generate.js (re)STARTED ---*" + ANSI.RESET);
 
@@ -52,25 +52,25 @@ const firebaseConfig = {
   databaseURL:
     process.env.FIREBASE_DATABASE_URL,
 };
-console.log( ANSI.BLUE + '\nFIREBASE_DATABASE_URL : ' + process.env.FIREBASE_DATABASE_URL + ANSI.RESET)
+console.log(ANSI.BLUE + '\nFIREBASE_DATABASE_URL : ' + process.env.FIREBASE_DATABASE_URL + ANSI.RESET)
 //
 // 2. Initialize Firebase
 const apptiti = firebase.initializeApp(firebaseConfig);
-console.log( ANSI.GREEN + '... after firebase.initializeApp(firebaseConfig);'+ ANSI.RESET)
+console.log(ANSI.GREEN + '... after firebase.initializeApp(firebaseConfig);' + ANSI.RESET)
 const databasetiti = firebase.database();
-console.log( ANSI.GREEN + '... after firebase.database();'+ ANSI.RESET)
+console.log(ANSI.GREEN + '... after firebase.database();' + ANSI.RESET)
 //
 // 3.1 writeData, the write function !
-//jb function writeData(path, key, value) {
-//jb   firebase
-//jb     .database()
-//jb     .ref(path + '/' + key)
-//jb     .set(value);
-//jb }
+function writeData(path, key, value) {
+  firebase
+    .database()
+    .ref(path + '/' + key)
+    .set(value);
+}
 //
 // 3.3 let's send some data
-//jb writeData('logopenai-scenario', UUID(), { log: 'start OK' })
-console.log( ANSI.GREEN + `... after writeData('logopenai-scenario', UUID(), { log: 'start OK' })`+ ANSI.RESET)
+writeData('logopenai-scenario', UUID(), { log: 'start OK' })
+console.log(ANSI.GREEN + `... after writeData('logopenai-scenario', UUID(), { log: 'start OK' })` + ANSI.RESET)
 
 
 //
@@ -111,14 +111,14 @@ const generateAction = async (req, res) => {
 
   const basePromptOutput = baseCompletion.data.choices.pop();
 
-  //jb writeData('openai-scenario-serverside', UUID(), {
-  //jb  brief: process.env.OPENAI_REQUEST_DESCRIPTION_FR,
-  //jb   prompt: req.body.userInput,
-  //jb   answer: `${req.body.userInput}${basePromptOutput.text}`
-  //jb })
+  writeData('openai-scenario-serverside', UUID(), {
+    brief: process.env.OPENAI_REQUEST_DESCRIPTION_FR,
+    prompt: req.body.userInput,
+    answer: `${req.body.userInput}${basePromptOutput.text}`
+  })
 
   console.log(ANSI.GREEN + '...' + ANSI.BLUE + basePromptOutput.text + ANSI.RESET)
-  
+
   res.status(200).json({ output: basePromptOutput });
 };
 // export !
