@@ -5,7 +5,7 @@ import coffeeLogo from '../assets/coffee-logo.png'
 
 import { useState } from 'react';
 
-import {ANSI} from './utils/ansi_colors.js';
+import {ANSI} from '../utils/ansi_colors.js';
 
 console.log(ANSI.GREEN + "\n*--- index.js (re)STARTED ---*" + ANSI.RESET);
 

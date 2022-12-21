@@ -4,7 +4,7 @@ import { Configuration, OpenAIApi } from 'openai';
 import firebase from 'firebase/app';
 import 'firebase/database';
 
-import {ANSI} from '../utils/ansi_colors.js';
+import {ANSI} from '../../utils/ansi_colors.js';
 
 console.log(ANSI.GREEN + "\n*--- generate.js (re)STARTED ---*" + ANSI.RESET);
 
