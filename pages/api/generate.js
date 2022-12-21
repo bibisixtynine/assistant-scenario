@@ -4,6 +4,11 @@ import { Configuration, OpenAIApi } from 'openai';
 import firebase from 'firebase/app';
 import 'firebase/database';
 
+import {ANSI} from '../utils/ansi_colors.js';
+
+console.log(ANSI.GREEN + "\n*--- generate.js (re)STARTED ---*" + ANSI.RESET);
+
+
 //=======================================================
 //
 // FUNCTION -> UUID
@@ -47,7 +52,7 @@ const firebaseConfig = {
   databaseURL:
     process.env.FIREBASE_DATABASE_URL,
 };
-console.log('FIREBASE_DATABASE_URL :', process.env.FIREBASE_DATABASE_URL)
+console.log( ANSI.BLUE + '\nFIREBASE_DATABASE_URL : '+ process.env.FIREBASE_DATABASE_URL + ANSI.RESET)
 //
 // 2. Initialize Firebase
 const apptiti = firebase.initializeApp(firebaseConfig);
@@ -91,7 +96,8 @@ const openai = new OpenAIApi(configuration);
 const generateAction = async (req, res) => {
 
   const firstPrompt = `${process.env.OPENAI_REQUEST_DESCRIPTION_FR}${req.body.userInput}`;
-  console.log('=> firstPrompt:\n', firstPrompt)
+
+  console.log(ANSI.CYAN + '\n' + firstPrompt + ANSI.GREEN + '...' + ANSI.RESET)
 
   const baseCompletion = await openai.createCompletion({
     model: 'text-davinci-003',
@@ -108,7 +114,7 @@ const generateAction = async (req, res) => {
     answer: `${req.body.userInput}${basePromptOutput.text}`
   })
 
-  console.log('\n=> xfirstPromptOutput', basePromptOutput.text)
+  console.log(ANSI.GREEN + '...' + ANSI.BLUE + basePromptOutput.text + ANSI.RESET)
   
   res.status(200).json({ output: basePromptOutput });
 };

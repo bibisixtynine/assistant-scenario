@@ -3,11 +3,11 @@ import Image from 'next/image';
 
 import coffeeLogo from '../assets/coffee-logo.png'
 
-
-
 import { useState } from 'react';
 
+import {ANSI} from './utils/ansi_colors.js';
 
+console.log(ANSI.GREEN + "\n*--- index.js (re)STARTED ---*" + ANSI.RESET);
 
 const Home = () => {
   const [userInput, setUserInput] = useState('');
@@ -17,7 +17,6 @@ const Home = () => {
 
   const callGenerateEndpoint = async () => {
     setIsGenerating(true);
-
 
     const response = await fetch('/api/generate', {
       method: 'POST',
@@ -29,7 +28,6 @@ const Home = () => {
 
     const data = await response.json();
     const { output } = data;
-
 
     setApiOutput(`${ userInput }${output.text}`);
     setIsGenerating(false);
