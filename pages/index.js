@@ -48,7 +48,7 @@ const Home = () => {
             <h1>Demandez votre scenario !</h1>
           </div>
           <div className="header-subtitle">
-            <h2>Doooonnez moi quelques éléments dans le cadre ci-dessous (qui peut se limiter à par exemple : la cigale et la fourmi), et je m'occupe de rédiger votre scénario !</h2>
+            <h2>Donnez moi quelques éléments dans le cadre ci-dessous (qui peut se limiter à par exemple : la cigale et la fourmi), et je m'occupe de rédiger votre scénario !</h2>
             <h2>Ensuite, appuyez sur 'GO!', et accordez moi entre 10 et 20s pour vous répondre!</h2>
           </div>
         </div>
