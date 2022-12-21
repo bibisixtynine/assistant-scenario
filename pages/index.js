@@ -31,7 +31,7 @@ const Home = () => {
     const { output } = data;
 
 
-    setApiOutput(`${output.text}`);
+    setApiOutput(`${ userInput }${output.text}`);
     setIsGenerating(false);
   }
 
@@ -39,17 +39,10 @@ const Home = () => {
     setUserInput(event.target.value);
   };
 
-  // Ask for your Motivation Letter !
-  // Demandez votre lettre de motivation !
-  // Give me some informations about you and the company you are looking for, I will do the rest !
-  // Donnez moi quelques informations sur vous et l'organisation que vous visez, et je m'occupe du reste !
-  // start typing heres. For instance : I'm honest, hard work, enthusiast. I would like to be hired in a new car repair shop in Saint-Nazaire, DLGA. The owner is looking for a secretary for appointments and welcome the customers.
-  // Commencez par écrire ici, par exemple : Je m'appelle Myriam Bababoum, 51 ans.  Je suis honnête, travailleuse, pleine d'enthousiasme, mère de 2 jeunes filles pleine d'énergie dont je suis très fière. J'ai 30 ans d'expériences dans des domaines variés, dont 4 ans de parcours du monde, grimper au sommet de montagnes, la direction des ressources humaine dans des milieux variés, dont celui de l'autisme. Je voudrais intégrer l'équipe des Editions Papaouté, qui édite des livres pour les enfants atypiques et leurs parents.
-  // Commencez par écrire ici, par exemple : Je m'appelle Michel, j'ai 20 ans, et je rêve de bosser pour Tesla. Je n'ai aucune expérience mais je suis hyper motive !
   return (
     <div className="root">
       <Head>
-        <title>Lettre de Motivation</title>
+        <title>Créateur de scénario</title>
       </Head>
       <div className="container">
         <div className="header">
@@ -57,12 +50,13 @@ const Home = () => {
             <h1>Demandez votre scenario !</h1>
           </div>
           <div className="header-subtitle">
-            <h2>Donnez moi un synopsys, et je m'occupe de rédiger votre scénario !</h2>
+            <h2>Donnez moi quelques éléments dans le cadre ci-dessous (qui peut se limiter à par exemple : la cigale et la fourmi), et je m'occupe de rédiger votre scénario !</h2>
+            <h2>Ensuite, appuyez sur 'GO!', et accordez moi entre 10 et 20s pour vous répondre!</h2>
           </div>
         </div>
         <div className="prompt-container">
           <textarea
-            placeholder="Commencez par remplacer ce message en cliquant / touchant dans le cadre puis en écrivant un synopsys"
+            placeholder="Commencez par remplacer ce message en cliquant / touchant dans le cadre puis écrivez un résumé en quelques lignes, ou juste quelques éléments clés de votre histoire. "
             className="prompt-box"
             value={userInput}
             onChange={onUserChangedText}
@@ -81,7 +75,7 @@ const Home = () => {
             <div className="output">
               <div className="output-header-container">
                 <div className="output-header">
-                  <h3>Lettre de motivation</h3>
+                  <h3>L'histoire que j'ai rédigée pour vous :</h3>
                 </div>
               </div>
               <div className="output-content">
