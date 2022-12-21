@@ -57,7 +57,7 @@ console.log( ANSI.BLUE + '\nFIREBASE_DATABASE_URL : ' + process.env.FIREBASE_DAT
 // 2. Initialize Firebase
 const apptiti = firebase.initializeApp(firebaseConfig);
 console.log( ANSI.GREEN + '... after firebase.initializeApp(firebaseConfig);'+ ANSI.RESET)
-//jb const databasetiti = firebase.database();
+const databasetiti = firebase.database();
 console.log( ANSI.GREEN + '... after firebase.database();'+ ANSI.RESET)
 //
 // 3.1 writeData, the write function !
