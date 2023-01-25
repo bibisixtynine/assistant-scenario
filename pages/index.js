@@ -7,7 +7,7 @@ import { ANSI } from '../utils/ansi_colors.js';
 
 console.log(ANSI.GREEN + "\n*--- index.js (re)STARTED ---*" + ANSI.RESET);
 
-const VERSION_NUMBER = 'v1.0.0.1'
+const VERSION_NUMBER = 'v1.0.0.2'
 
 const Home = () => {
   const [userInput, setUserInput] = useState('');
@@ -84,7 +84,7 @@ const Home = () => {
           )}
           <div className="contact">
             <h2>Contact: <a href="mailto:profpepite@proton.me" style={{ color: 'gray' }}>profpepite@proton.me</a></h2>
-            <p className="version-number">{VERSION_NUMBER}</p>
+            <p>{VERSION_NUMBER}</p>
           </div>
         </div>
       </div>
