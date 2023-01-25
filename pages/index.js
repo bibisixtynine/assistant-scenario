@@ -1,11 +1,9 @@
 import Head from 'next/head';
 import Image from 'next/image';
-
-import coffeeLogo from '../assets/coffee-logo.png'
-
 import { useState } from 'react';
 
-import {ANSI} from '../utils/ansi_colors.js';
+import coffeeLogo from '../assets/coffee-logo.png'
+import { ANSI } from '../utils/ansi_colors.js';
 
 console.log(ANSI.GREEN + "\n*--- index.js (re)STARTED ---*" + ANSI.RESET);
 
@@ -15,10 +13,8 @@ const Home = () => {
   const [isGenerating, setIsGenerating] = useState(false)
 
   const callGenerateEndpoint = async () => {
-  //const callGenerateEndpoint = async () => {
-      setIsGenerating(true);
+    setIsGenerating(true);
 
-    
     const response = await fetch('/api/generate', {
       method: 'POST',
       headers: {
@@ -32,7 +28,7 @@ const Home = () => {
 
     const { output } = data;
 
-    setApiOutput(`${ userInput }${output.text}`);
+    setApiOutput(`${userInput}${output.text}`);
     setIsGenerating(false);
   }
 
@@ -104,7 +100,5 @@ const Home = () => {
     </div>
   );
 };
-
-
 
 export default Home;
