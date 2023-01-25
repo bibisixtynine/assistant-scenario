@@ -14,21 +14,21 @@ const Home = () => {
   const [apiOutput, setApiOutput] = useState('')
   const [isGenerating, setIsGenerating] = useState(false)
 
-  //const callGenerateEndpoint = async () => {
   const callGenerateEndpoint = async () => {
+  //const callGenerateEndpoint = async () => {
       setIsGenerating(true);
 
-    /*
+    
     const response = await fetch('/api/generate', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ userInput }),
-    });*/
+    });
 
-    //const data = await response.json();
-    const data = {text:'OH YES'}
+    const data = await response.json();
+    //const data = {text:'OH YES'}
 
     const { output } = data;
 
