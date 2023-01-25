@@ -1,5 +1,3 @@
-import { Configuration, OpenAIApi } from 'openai';
-
 
 
 import { ANSI } from '../../utils/ansi_colors.js';
@@ -40,12 +38,13 @@ export function UUID() {
 //
 //=======================================================
 
-
+/*
 const configuration = new Configuration({
   apiKey: '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',
 });
 
 const openai = new OpenAIApi(configuration);
+*/
 
 const generateAction = async (req, res) => {
   const OPENAI_REQUEST_DESCRIPTION_FR = `Ecriture d'un scénario de dessin animé en 7 actes.
@@ -66,14 +65,18 @@ const generateAction = async (req, res) => {
 
   console.log(ANSI.CYAN + '\n' + firstPrompt + ANSI.GREEN + '...' + ANSI.RESET)
 
+  /*
   const baseCompletion = await openai.createCompletion({
     model: 'text-davinci-003',
     prompt: `${OPENAI_REQUEST_DESCRIPTION_FR}${req.body.userInput}`,
     temperature: 0.7,
     max_tokens: 1900,
   });
+  */
 
-  const basePromptOutput = baseCompletion.data.choices.pop();
+  //const basePromptOutput = baseCompletion.data.choices.pop();
+  const basePromptOutput = 'COUCOU !'
+
 
   console.log(ANSI.GREEN + '...' + ANSI.BLUE + basePromptOutput.text + ANSI.RESET)
 
