@@ -76,6 +76,12 @@ body {
     color: rgba(255, 255, 255, 0.75);
 }
 
+.contact p {
+    text-align: center;
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.75);
+}
+
 .header-subsubtitle {
     text-align: center;
     font-size: 15px;
