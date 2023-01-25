@@ -11,12 +11,12 @@ console.log(ANSI.GREEN + "\n*--- index.js (re)STARTED ---*" + ANSI.RESET);
 
 const Home = () => {
   const [userInput, setUserInput] = useState('');
-
   const [apiOutput, setApiOutput] = useState('')
   const [isGenerating, setIsGenerating] = useState(false)
 
+  //const callGenerateEndpoint = async () => {
   const callGenerateEndpoint = async () => {
-    setIsGenerating(true);
+      setIsGenerating(true);
 
     /*
     const response = await fetch('/api/generate', {
