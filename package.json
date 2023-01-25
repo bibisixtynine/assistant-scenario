@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "dotenv": "^16.0.3",
     "firebase": "^8.10.1",
     "next": "^13.0.6",
     "openai": "^3.1.0",
