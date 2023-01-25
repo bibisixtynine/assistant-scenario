@@ -75,7 +75,7 @@ const generateAction = async (req, res) => {
   */
 
   //const basePromptOutput = baseCompletion.data.choices.pop();
-  const basePromptOutput = 'COUCOU !'
+  const basePromptOutput = {text:'COUCOU !'}
 
 
   console.log(ANSI.GREEN + '...' + ANSI.BLUE + basePromptOutput.text + ANSI.RESET)
