@@ -1,3 +1,4 @@
+
 import { Configuration, OpenAIApi } from 'openai';
 
 // firebase 8.10.1

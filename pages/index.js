@@ -11,13 +11,14 @@ console.log(ANSI.GREEN + "\n*--- index.js (re)STARTED ---*" + ANSI.RESET);
 
 const Home = () => {
   const [userInput, setUserInput] = useState('');
-
   const [apiOutput, setApiOutput] = useState('')
   const [isGenerating, setIsGenerating] = useState(false)
 
   const callGenerateEndpoint = async () => {
-    setIsGenerating(true);
+  //const callGenerateEndpoint = async () => {
+      setIsGenerating(true);
 
+    
     const response = await fetch('/api/generate', {
       method: 'POST',
       headers: {
@@ -27,6 +28,8 @@ const Home = () => {
     });
 
     const data = await response.json();
+    //const data = {text:'OH YES'}
+
     const { output } = data;
 
     setApiOutput(`${ userInput }${output.text}`);
