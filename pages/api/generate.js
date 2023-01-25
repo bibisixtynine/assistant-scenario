@@ -1,8 +1,6 @@
 import { Configuration, OpenAIApi } from 'openai';
 
-// firebase 8.10.1
-import firebase from 'firebase/app';
-import 'firebase/database';
+
 
 import { ANSI } from '../../utils/ansi_colors.js';
 
@@ -43,55 +41,6 @@ export function UUID() {
 //=======================================================
 
 
-//=======================================================
-//
-// FIREBASE 8
-//
-// 1. init
-const FIREBASE_DATABASE_URL = 'https://scenario-assistant-default-rtdb.europe-west1.firebasedatabase.app/'
-
-const firebaseConfig = {
-  databaseURL:
-  FIREBASE_DATABASE_URL,
-};
-console.log(ANSI.BLUE + '\nFIREBASE_DATABASE_URL : ' + FIREBASE_DATABASE_URL + ANSI.RESET)
-//
-// 2. Initialize Firebase
-const apptiti = firebase.initializeApp(firebaseConfig);
-console.log(ANSI.GREEN + '... after firebase.initializeApp(firebaseConfig);' + ANSI.RESET)
-const databasetiti = firebase.database();
-console.log(ANSI.GREEN + '... after firebase.database();' + ANSI.RESET)
-//
-// 3.1 writeData, the write function !
-function writeData(path, key, value) {
-  firebase
-    .database()
-    .ref(path + '/' + key)
-    .set(value);
-}
-//
-// 3.3 let's send some data
-writeData('logopenai-scenario', UUID(), { log: 'start OK' })
-console.log(ANSI.GREEN + `... after writeData('logopenai-scenario', UUID(), { log: 'start OK' })` + ANSI.RESET)
-
-
-//
-// 4. read data if changed
-/*
-var newLogData = firebase.database().ref('logissim');
-newLogData.on('value', (snapshot) => {
-  const data = snapshot.val();
-  for (const property in data) {
-    let logMsg = data[property];
-    console.log(`${property}: ${logMsg.message}`);
-  }
-});
-*/
-//
-//=======================================================
-
-
-
 const configuration = new Configuration({
   apiKey: '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',
 });
@@ -117,8 +66,6 @@ const generateAction = async (req, res) => {
 
   console.log(ANSI.CYAN + '\n' + firstPrompt + ANSI.GREEN + '...' + ANSI.RESET)
 
-
-
   const baseCompletion = await openai.createCompletion({
     model: 'text-davinci-003',
     prompt: `${OPENAI_REQUEST_DESCRIPTION_FR}${req.body.userInput}`,
@@ -128,15 +75,10 @@ const generateAction = async (req, res) => {
 
   const basePromptOutput = baseCompletion.data.choices.pop();
 
-  writeData('openai-scenario-serverside', UUID(), {
-    brief: OPENAI_REQUEST_DESCRIPTION_FR,
-    prompt: req.body.userInput,
-    answer: `${req.body.userInput}${basePromptOutput.text}`
-  })
-
   console.log(ANSI.GREEN + '...' + ANSI.BLUE + basePromptOutput.text + ANSI.RESET)
 
   res.status(200).json({ output: basePromptOutput });
 };
+
 // export !
 export default generateAction;
