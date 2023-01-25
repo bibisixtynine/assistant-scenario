@@ -325,7 +325,7 @@ textarea {
     font-weight: 800;
     letter-spacing: 0px;
     line-height: 1.4em;
-    text-align: start;
+    text-align: center; /*jb*/
     color: #ffffff;
     text-decoration: none;
     text-transform: none;

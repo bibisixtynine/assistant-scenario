@@ -1,4 +1,7 @@
 # bibil 
+
+230125 - Tested with local VSCODE ok
+
 ### Bienvenu 👋
 Demandez votre scénario !
 
