@@ -7,7 +7,7 @@ import { ANSI } from '../utils/ansi_colors.js';
 
 console.log(ANSI.GREEN + "\n*--- index.js (re)STARTED ---*" + ANSI.RESET);
 
-const VERSION_NUMBER = 'v1.0.0.2'
+const VERSION_NUMBER = 'v1.0.0.5'
 
 const Home = () => {
   const [userInput, setUserInput] = useState('');
